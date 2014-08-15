@@ -1,0 +1,19 @@
+{
+    "name": "lautfm-radioadmin-client",
+    "version": "0.0.1",
+    "description": "HMTL5 client for laut.fm radio DJs",
+    "author": "Laut AG <info@laut.ag>",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lautde/radioadmin-client"
+    },
+    "homepage": "http://laut.fm/",
+    "devDependencies": {
+    },
+    "private": false,
+    "scripts": {
+        "start": "TODO",
+        "test": "TODO"
+    },
+    "preferGlobal": false
+}
