@@ -1,0 +1,48 @@
+@import "colors";
+@import "consts";
+
+header {
+    $headerheight: 40px;
+    min-height: $headerheight;
+    font-size: 20px;
+    background: $darkwhite url("../img/lautfm.png") 10px center no-repeat;
+    overflow: hidden;
+    box-shadow: 0 0 3px hsl(0, 0%, 50%);
+    padding-left: 130px;
+    @media screen and (max-width: $break_small) {
+        padding-left: 50px;
+        background-image: url("../img/lautfm-notext.png");
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        @media screen and (min-width: $break_large) {
+            margin: 0 20px;
+        }
+        li {
+            float: left;
+            line-height: $headerheight;
+            margin: 0 5px;
+            @media screen and (min-width: $break_large) {
+                margin: 0 20px;
+            }
+            a {
+                display: inline-block;
+                font-weight: bold;
+                text-decoration: none;
+                outline: none;
+                &:link, &:visited, &:hover, &:active {
+                    color: $lightblack;
+                }
+                padding: 0 20px;
+                @media screen and (max-width: $break_large) {
+                    padding: 0 10px;
+                }
+                @media screen and (max-width: $break_small) {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
