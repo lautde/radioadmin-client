@@ -4,13 +4,13 @@
 * An augmented version of Array that fires events:
 *
 * 'add': fired when elements have been added.
-*        Arguments: (elements, this)
-*        Note that you must not add items using the [] notation.
-*        Use methods like push() etc. instead
+*      Arguments: (elements, this)
+*      Note that you must not add items using the [] notation.
+*      Use methods like push() etc. instead
 * 'remove': fired when elements has been removed
-*           Arguments: (elements, this)
+*      Arguments: (elements, this)
 * 'reorder': fired when the collection is sorted or reversed
-*            Arguments: (this)
+*      Arguments: (this)
 *
 */
 lt.Collection = lt.extend(Array, function () {

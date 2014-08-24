@@ -15,7 +15,6 @@ lt.scheduler.ProgramModel = lt.extend(lt.Model, function (data) {
         color: data.color
     });
 }, {
-
     /**
     * TODO: docs
     */

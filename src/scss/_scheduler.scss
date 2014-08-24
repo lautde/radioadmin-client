@@ -241,11 +241,13 @@ $program_border_width: 2px;
 
 
 
-
+// TODO: make fixed header work
 
 .fixedcellheader {
   display: none;
 }
+
+// TODO: determine breakpoints and refactor all of the below
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   .program:before {

@@ -2,7 +2,11 @@
 lt.namespace('lt.scheduler');
 
 /**
-* TODO: docs
+* The laut.fm Scheduler widget.
+* It manages a tabular overview of free "slots", which can be filled with "programs".
+* One slot is one hour long. One program may occupy slots on more than one day.
+* @constructor
+* @param {Element} container The HTML element to render this widget to
 */
 lt.scheduler.Scheduler = lt.extend(Object, function (container) {
     this.slots = [];
@@ -15,15 +19,17 @@ lt.scheduler.Scheduler = lt.extend(Object, function (container) {
 }, {
     /**
     * @private
+    * Set up the calendar GUI
+    * @param {Element} container The HTML element to render this widget to
     */
     initGrid: function (container) {
         var days = lt.config.dayNames;
-        days.forEach(function (day, index) {
+        days.forEach(function (day, index) { // 7 days
             var column = new lt.View('tpl-column');
             column.render({
                 text: day
             }, container);
-            for (var i = 0; i < 24; i++) {
+            for (var i = 0; i < 24; i++) { // … * 24 hours
                 var model = new lt.scheduler.SlotModel({
                     program: null
                 });
@@ -33,17 +39,31 @@ lt.scheduler.Scheduler = lt.extend(Object, function (container) {
         }, this);
     },
 
+    /**
+    * @private
+    * Initialize the associated ProgramViewController instance
+    */
     initViewController: function () {
         this.viewController = new lt.scheduler.ProgramViewController(this.programs, this.slotViews);
         this.viewController.on('requestDeletion', this.onDeletionRequest, this);
     },
 
+    /**
+    * Callback for deletion request
+    * @param {ProgramModel} model The model that the user wants to delete
+    */
     onDeletionRequest: function (model) {
-        model.destroy();
+        // show confirmation dialog here, if needed
+        model.destroy(); // the view controller will make sure the associated views are destroyed, too
     },
 
     /**
-    * TODO: docs
+    * Insert a program into the schedule.
+    * There must be enough free space for insertion, otherwise this method throws an Error.
+    * @param {Number} playlistId The playlist id that the program belongs to
+    * @param {Number} duration Program's duration in hours. Can be from 1 up to 168 (=7*24)
+    * @param {Number} slotId The index of the slot where tho program should start.
+    *                        0 = Monday 0:00, 23 = Monday 23:00, 27 = Tuesday 3:00 etc.
     */
     addProgram: function (playlistId, duration, slotId) {
         this.validateInsertionPoint(slotId, duration);
@@ -59,12 +79,14 @@ lt.scheduler.Scheduler = lt.extend(Object, function (container) {
             slotId: slotId,
             playlistId: playlistId
         });
-
         this.programs.push(program);
     },
 
     /**
     * @private
+    * Check if the requested slot is free.
+    * @param {Number} slotId See {@link this.addProgram}
+    * @param {Number} duration See {@link this.addProgram}
     */
     validateInsertionPoint: function (slotId, duration) {
         if (slotId < 0 || slotId + duration - 1 >= this.slots.length) {
@@ -129,7 +151,9 @@ lt.scheduler.Scheduler = lt.extend(Object, function (container) {
 
 
     /**
+    * Remove the given program from the schedule
     * @param {Number|lt.scheduler.ProgramModel} program
+    *        Either the slot id where the program is running, or a program model
     */
     removeProgram: function (program) {
         if (typeof program == 'number') {
@@ -142,7 +166,9 @@ lt.scheduler.Scheduler = lt.extend(Object, function (container) {
     },
 
     /**
-    * TODO: docs
+    * Callback for addition of new programs to the program collection.
+    * @param {Array} programs The programs that have been added
+    * @param {Collection} collection The program collection
     */
     onProgramAdded: function (programs, collection) {
         programs.forEach(function (program) {
@@ -157,7 +183,9 @@ lt.scheduler.Scheduler = lt.extend(Object, function (container) {
     },
 
     /**
-    * TODO: docs
+    * Callback for removal of programs from the program collection.
+    * @param {Array} programs The programs that have been deleted
+    * @param {Collection} collection The program collection
     */
     onProgramRemoved: function (programs, collection) {
         programs.forEach(function (program) {
@@ -172,6 +200,10 @@ lt.scheduler.Scheduler = lt.extend(Object, function (container) {
 
     /**
     * listener for program model change
+    * @param {Array} keys The properties that have changed in the model
+    * @param {Object} newData The current model data
+    * @param {Object} oldData The model data before the change happened
+    * @param {ProgramModel} model
     */
     onProgramChanged: function (keys, newData, oldData, model) {
         // synchronize slot model
@@ -188,6 +220,7 @@ lt.scheduler.Scheduler = lt.extend(Object, function (container) {
 
     /**
     * TODO: docs
+    * TODO: implement D&D
     */
     getPossibleDropTargets: function (requiredLength, splitMidnight) {
         alert('FIXME');
@@ -223,6 +256,11 @@ lt.scheduler.Scheduler = lt.extend(Object, function (container) {
         };
     },
 
+    /**
+    * Get the program at the given slot id
+    * @param {Number} slotId
+    * @return {ProgramModel}
+    */
     getProgramAt: function (slotId) {
         var slot = this.slots[slotId];
         return slot && slot.get('program');

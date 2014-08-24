@@ -2,7 +2,8 @@
 
 window.lt = {
     /**
-    * TODO: docs
+    * Create a namespace-like object hierarchy
+    * @param {String} namespace A dot-separated namespace, e.g. "lt.foo.bar"
     */
     namespace: function (namespace) {
         var target = window;
@@ -50,7 +51,11 @@ window.lt = {
     },
 
     /**
-    * TODO: docs
+    * Copy properties from one object to another
+    * @param {Object|Function} target The object to augment.
+    *     If this is a function, its prototype will be targeted
+    * @param {Object} mixin The object to copy the properties from.
+    *     All properties of the same name in the target object will be overwritten.
     */
     mix: function (target, mixin) {
         if (typeof target == 'function') {

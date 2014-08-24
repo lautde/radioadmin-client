@@ -106,6 +106,9 @@ lt.scheduler.ProgramViewController = lt.extend(Object, function (programs, slotV
         });
     },
 
+    /**
+    * TODO: docs
+    */
     onDeletionRequest: function (view) {
         for (var i = 0; i < this.proxyMap.length; i++) {
             var proxyModels = this.proxyMap[i].proxyModels;

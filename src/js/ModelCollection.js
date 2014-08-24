@@ -1,9 +1,15 @@
 'use strict';
 
+/**
+* TODO: docs
+*/
 lt.ModelCollection = lt.extend(lt.Collection, function () {
     this.on('add', this.onAdded, this);
     lt.Collection.apply(this, arguments);
 }, {
+    /**
+    * TODO: docs
+    */
     onAdded: function (models) {
         models.forEach(function (model) {
             if (!(model instanceof lt.Model)) {
@@ -13,6 +19,9 @@ lt.ModelCollection = lt.extend(lt.Collection, function () {
         }, this);
     },
 
+    /**
+    * TODO: docs
+    */
     onModelDestroy: function (model) {
         var indexes = [];
         this.forEach(function (item, index) {
@@ -26,6 +35,9 @@ lt.ModelCollection = lt.extend(lt.Collection, function () {
 
     },
 
+    /**
+    * TODO: docs
+    */
     destroy: function (dostroyModels) {
         if (this.destroyed) {
             return;
