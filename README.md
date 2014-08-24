@@ -1,4 +1,4 @@
-radioadmin-client
+Radioadmin Client
 =================
 
 Der neue laut.fm Radioadmin.
@@ -9,4 +9,4 @@ bald.
 
 ---
 
-laut.fm | User Generated Radio™
+[laut.fm](http://laut.fm/) | User Generated Radio™
