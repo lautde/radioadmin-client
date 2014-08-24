@@ -61,7 +61,6 @@ lt.scheduler.Scheduler = lt.extend(Object, function (container) {
         });
 
         this.programs.push(program);
-        program.on('change', this.onProgramChanged, this);
     },
 
     /**
@@ -134,10 +133,9 @@ lt.scheduler.Scheduler = lt.extend(Object, function (container) {
     */
     removeProgram: function (program) {
         if (typeof program == 'number') {
-            var slot = this.slots[program];
-            program = slot && slot.get('program');
+            program = this.getProgramAt(program);
         }
-        if (!program instanceof lt.scheduler.ProgramModel) {
+        if (!(program instanceof lt.scheduler.ProgramModel)) {
             throw new Error('Invalid program');
         }
         program.destroy();
@@ -154,6 +152,7 @@ lt.scheduler.Scheduler = lt.extend(Object, function (container) {
                 var slot = this.slots[slotId + i - 1];
                 slot.set('program', program);
             }
+            program.on('change', this.onProgramChanged, this);
         }, this);
     },
 
@@ -167,6 +166,7 @@ lt.scheduler.Scheduler = lt.extend(Object, function (container) {
             for (var i = 1; i <= duration; i++) {
                 this.slots[slotId + i - 1].set('program', null);
             }
+            program.un('change', this.onProgramChanged, this);
         }, this);
     },
 
@@ -224,6 +224,7 @@ lt.scheduler.Scheduler = lt.extend(Object, function (container) {
     },
 
     getProgramAt: function (slotId) {
-        return this.slots[slotId].get('program');
+        var slot = this.slots[slotId];
+        return slot && slot.get('program');
     }
 });
