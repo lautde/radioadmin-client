@@ -13,7 +13,7 @@ lt.scheduler.ProgramView = lt.extend(lt.View, {
         lt.View.prototype.render.call(this, data, target, position);
         var brightness = SB.color.calculateBrightness(data.color);
 
-        if (brightness < .5) {
+        if (brightness < .65) {
             this.el.classList.add('dark');
         }
         this.deleteBtn = this.el.querySelector('.delete');

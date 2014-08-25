@@ -46,6 +46,13 @@ $program_border_width: 2px;
             // cell hover styles
             &:hover {
                 background: hsla(120, 80%, 95%, .5);
+                background: -webkit-repeating-linear-gradient(
+                    -45deg,
+                    hsla(120, 80%, 95%, .4),
+                    hsla(120, 80%, 95%, .4) 8px,
+                    hsla(120, 80%, 92%, .45) 8px,
+                    hsla(120, 80%, 92%, .45) 16px
+                );
                 background: repeating-linear-gradient(
                     -45deg,
                     hsla(120, 80%, 95%, .4),
@@ -83,7 +90,7 @@ $program_border_width: 2px;
                 bottom: 0;
                 border: $program_border_width solid hsla(0, 0%, 0%, .2);
                 overflow: hidden;
-                color: hsla(0, 0%, 0%, 0.9);
+                color: hsla(0, 0%, 0%, 0.8);
                 &.dark {
                     color: hsla(0, 0%, 100%, .9);
                 }

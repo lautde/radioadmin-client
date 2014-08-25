@@ -53,7 +53,8 @@ lt.scheduler.Scheduler = lt.extend(Object, function (container) {
     * @param {ProgramModel} model The model that the user wants to delete
     */
     onDeletionRequest: function (model) {
-        // show confirmation dialog here, if needed
+        // show confirmation dialog here, if needed, e.g.
+        // if (window.confirm(model.get('title') + ' löschen?'))
         model.destroy(); // the view controller will make sure the associated views are destroyed, too
     },
 
