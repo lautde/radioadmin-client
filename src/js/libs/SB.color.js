@@ -5,8 +5,7 @@
 * Just a namespace containing color related functions
 * @singleton
 */
-Ext.ns('SB.color');
-
+window.SB = {color: {}};
 (function () {
 
     var colorNames;
@@ -489,7 +488,7 @@ Ext.ns('SB.color');
         if (input.a === 0) {
             return returnColorNames ? 'transparent' : 'rgba(0, 0, 0, 0)';
         }
-        if (input.hasOwnProperty('a') && input.a != 1 && !Ext.isIE7 && !Ext.isIE8) {
+        if (input.hasOwnProperty('a') && input.a != 1) {
             return 'rgba(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ',' + input.a + ')';
         }
         var result = '#';
