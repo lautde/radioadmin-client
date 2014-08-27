@@ -71,7 +71,7 @@ $program_border_width: 2px;
                 top: 0;
                 bottom: 0;
                 margin: auto;
-                background: hsla(120, 80%, 80%, .6) url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAAXNSR0IArs4c6QAAADtJREFUKM9jYEAD////P/gfAQ6iyzMxkAhor4EFmzvR/YTMZ/z///9/2jqJgYHhEBZxOyh9iKAJQzAeAEcxLDpK/0w8AAAAAElFTkSuQmCC") center center no-repeat;
+                background: hsla(120, 80%, 80%, .6) url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="-0.5 -0.5 9 9"><path fill="white" d="M0,3v2h3v3h2v-3h3v-2h-3v-3h-2v3z"/></svg>') center center no-repeat;
                 content: "";
                 border-radius: 100%;
             }
@@ -105,9 +105,9 @@ $program_border_width: 2px;
                 @for $i from 2 through 24 {
                     $j: $i - 1;
                     &[data-duration="#{$i}"] {
-                        bottom: -$j*100%;
-                        bottom: -webkit-calc(#{-$j*100% + " - " + $j + "px"});
-                        bottom: calc(#{-$j*100% + " - " + $j + "px"});
+                        bottom: -$j * 100%;
+                        bottom: -webkit-calc(#{-$j * 100% + " - " + $j + "px"});
+                        bottom: calc(#{-$j * 100% + " - " + $j + "px"});
                     }
                 }
 
@@ -122,7 +122,7 @@ $program_border_width: 2px;
                     padding: 0 5px;
                     text-align: left;
                     vertical-align: middle;
-                    font-weight: bold;
+                    font-weight: 400;
                     font-size: 16px;
                     line-height: 20px;
                     text-overflow: ellipsis;
@@ -136,7 +136,7 @@ $program_border_width: 2px;
 
                 // delete button
                 .delete {
-                    background: none repeat scroll 0 0 hsla(0, 90%, 80%, 0.9);
+                    background: hsla(0, 90%, 80%, 0.9) url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 3 3"><path fill="white" d="M0,1v1h3v-1z"/></svg>') no-repeat center center;
                     border: 2px solid hsla(0, 0%, 95%, 0.9);
                     border-radius: 10px;
                     bottom: 0;
@@ -151,21 +151,6 @@ $program_border_width: 2px;
                     opacity: 0;
                     -webkit-transition: opacity .2s ease-in-out;
                     transition: opacity .2s ease-in-out;
-                    &:after {
-                        background: none repeat scroll 0 0 white;
-                        bottom: 0;
-                        box-shadow: 0 0 1px white;
-                        content: "";
-                        display: block;
-                        height: 2px;
-                        margin: auto;
-                        position: absolute;
-                        right: 0;
-                        left: 0;
-                        top: 0;
-                        width: 8px;
-                        pointer-events: none;
-                    }
                 }
                 &:hover .delete {
                     opacity: 1;
@@ -226,7 +211,7 @@ $program_border_width: 2px;
         position: absolute;
         left: $time_pos_left;
         top: $time_pos_top;
-        font-weight: bold;
+        font-weight: 600;
         line-height: 20px;
         font-size: 16px;
         text-align: left;
