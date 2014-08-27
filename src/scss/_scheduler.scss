@@ -257,57 +257,57 @@ $program_border_width: 2px;
 // TODO: determine breakpoints and refactor all of the below
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-.scheduler .program:before {
-    top: 0;
-    left: 8px;
-    font-size: 10px;
-    line-height: .9;
-    opacity: .5;
+    .scheduler .program:before {
+        top: 0;
+        left: 8px;
+        font-size: 10px;
+        line-height: .9;
+        opacity: .5;
 
-  }
-.scheduler .column .cell.slot .program .title {
-    left: 3px;
-    top: 9px;
-  }
+    }
+    .scheduler .column .cell.slot .program .title {
+        left: 3px;
+        top: 9px;
+    }
 }
 @media only screen and (max-width: 767px) {
 
-  .column {
-    clear: left;
-    width: 100% !important;
-    margin-bottom: 20px;
-    box-shadow: 0 1px 3px 1px hsl(0, 0%, 90%);
-  }
+    .column {
+        clear: left;
+        width: 100% !important;
+        margin-bottom: 20px;
+        box-shadow: 0 1px 3px 1px hsl(0, 0%, 90%);
+    }
 
-  .container {
-    box-shadow: none;
-  }
+    .container {
+        box-shadow: none;
+    }
 
-  .delete {
-    opacity: 1;
-  }
-  .program:not(:hover) .delete {
-    background-color: hsla(0, 20%, 80%, 0.9);
-  }
+    .delete {
+        opacity: 1;
+    }
+    .program:not(:hover) .delete {
+        background-color: hsla(0, 20%, 80%, 0.9);
+    }
 
-  .column:not(:first-child) .cell {
-    border-left-width: 1px;
-  }
+    .column:not(:first-child) .cell {
+        border-left-width: 1px;
+    }
 
-  .fixedcellheader {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 36px;
-    line-height: 36px;
-    z-index: 2;
-    background: hsl(0, 0%, 96%);
-    box-shadow: 0 0px 3px hsl(0, 0%, 50%);
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-  }
+    .fixedcellheader {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 36px;
+        line-height: 36px;
+        z-index: 2;
+        background: hsl(0, 0%, 96%);
+        box-shadow: 0 0px 3px hsl(0, 0%, 50%);
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+    }
 
 }
