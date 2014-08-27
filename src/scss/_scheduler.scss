@@ -117,7 +117,7 @@ $program_border_width: 2px;
                     top: 6px - $program_border_width;
                     left: 2.8em;
                     right: 3px;
-                    height: 20px;
+                    height: 100%;
                     overflow: hidden;
                     padding: 0 5px;
                     text-align: left;
@@ -130,7 +130,6 @@ $program_border_width: 2px;
                 }
                 // >= 2 hours
                 &[data-duration]:not([data-duration="1"]) .title {
-                  height: 100%;
                   white-space: normal;
                 }
 
