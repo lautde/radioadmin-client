@@ -1,3 +1,4 @@
+lt.namespace('lt.scheduler');
 (function () {
     'use strict';
 

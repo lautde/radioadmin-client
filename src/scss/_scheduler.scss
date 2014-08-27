@@ -256,6 +256,10 @@ $program_border_width: 2px;
 }
 @media only screen and (max-width: 767px) {
 
+    .scheduler {
+        box-shadow: none;
+    }
+
     .column {
         clear: left;
         width: 100% !important;
@@ -274,7 +278,7 @@ $program_border_width: 2px;
         background-color: hsla(0, 20%, 80%, 0.9);
     }
 
-    .column:not(:first-child) .cell {
+    .scheduler .column:not(:first-child) .cell {
         border-left-width: 1px;
     }
 
