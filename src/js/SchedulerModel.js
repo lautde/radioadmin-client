@@ -4,6 +4,7 @@ lt.namespace('lt.scheduler');
 
     lt.scheduler.SchedulerModel = lt.extend(lt.ModelCollection, function (slots) {
         this.slots = slots;
+        lt.ModelCollection.apply(this);
     }, {
 
         /**
