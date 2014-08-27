@@ -257,7 +257,7 @@ $program_border_width: 2px;
 // TODO: determine breakpoints and refactor all of the below
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .program:before {
+.scheduler .program:before {
     top: 0;
     left: 8px;
     font-size: 10px;
@@ -265,7 +265,7 @@ $program_border_width: 2px;
     opacity: .5;
 
   }
-  .title {
+.scheduler .column .cell.slot .program .title {
     left: 3px;
     top: 9px;
   }
